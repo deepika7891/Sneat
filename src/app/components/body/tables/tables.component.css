@@ -1,0 +1,13 @@
+table {
+    width: 100%;
+}
+h5{
+    color: rgb(94, 94, 150);
+    font-size: 20px;
+    margin: 25px;
+    position: relative;
+}
+p{
+    color: gray;
+}
+

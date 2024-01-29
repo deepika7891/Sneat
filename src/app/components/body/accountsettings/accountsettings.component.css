@@ -1,0 +1,33 @@
+.acount-header {
+    background-color: transparent;
+    height: 50px;
+    width: 100%;
+    margin-top: 2em;
+    display: flex;
+}
+
+button {
+    border: 0;
+    width: 150px;
+    color: gray;
+    background-color: transparent;
+    font-size: 20px;
+}
+
+button:hover {
+    color: #6d70ff;
+    border: 1px solid rebeccapurple;
+    background-color: white;
+}
+
+#Account {
+    margin-top: 2em;
+}
+
+#Security {
+    margin-top: 2rem;
+}
+
+#Notification {
+    margin-top: 2em;
+}

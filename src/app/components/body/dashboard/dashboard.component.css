@@ -1,0 +1,12 @@
+.chart{
+    border-radius: 15px;
+    margin-top: 1em;
+    width: 700px;
+}
+.card-img{
+    margin-right: 10px;
+}
+h4{
+    font-weight: 400;
+    color: gray;
+}

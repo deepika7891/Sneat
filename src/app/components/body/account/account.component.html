@@ -1,0 +1,59 @@
+<div class="account card border-0 w-100 ">
+    <!-- uploaded new photo and reset details -->
+    <h3 class="m-4">Account Details</h3>
+    <div class="row">
+        <div class="col-md-2">
+            <img src="https://sneat-vuetify-admin-template.vercel.app/assets/avatar-1-19a9226d.png"
+                alt="avatar-1-19a9226d" height="100px" width="100px" class="avtar">
+        </div>
+        <div class="col-md-10">
+            <div class="d-flex">
+                <button mat-raised-button color="primary">UPLOAD NEW PHOTO</button>
+                <button mat-stroked-button color="warn" style="margin-left: 15px;">RESET</button>
+            </div>
+            <p class="mt-4">Allowed JPG, GIF or PNG. Max size of 800K</p>
+        </div>
+        <hr>
+    </div>
+
+
+    <!-- form account details -->
+
+    <div class="row">
+        <form #myForm="ngForm">
+            <div class="d-flex">
+                <input type="text" placeholder="John" name="firstName" class="input-form" ngModel required>
+                <input type="text" placeholder="Doe" name="lastName" class="input-form" ngModel required>
+            </div>
+            <div class="d-flex">
+                <input type="email" name="email" placeholder="johnDoe@example.com" class="input-form" ngModel required>
+                <input type="text" name="organization" placeholder="theme Selection" class="input-form" ngModel required>
+            </div>
+            <div class="d-flex">
+                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="+91 123456789" class="input-form" ngModel required>
+                <input type="text" name="address" placeholder="123 Main St, New York, NY 10001" class="input-form" ngModel required>
+            </div>
+            <div class="d-flex">
+                <input type="text" name="state" placeholder="New york" class="input-form" ngModel required>
+                <input type="number" name="zip" placeholder="Zip-Code like 10001" class="input-form" ngModel required>
+            </div>
+        </form>
+    </div>
+    
+    <div class="d-flex">
+        <button mat-raised-button color="primary" class="m-4" (click)="saveChanges(myForm.value)">SAVE CHANGES</button>
+        <button mat-stroked-button color="Light" class="m-4" (click)="resetForm(myForm)">RESET</button>
+    </div>
+    
+</div>
+
+
+<div class="deactivate card border-0 w-100">
+    <h3 class="m-4">Deactivate Account</h3>
+
+    <div class="d-flex" style="margin-left: 20px;">
+        <input type="checkbox" name="checkbox">
+        <p style="margin-top: 15px; margin-left: 20px;">I confirm my account deactivate</p>
+    </div>
+    <button mat-raised-button color="warn" class="w-25 m-3">Warn</button>
+</div>

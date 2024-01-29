@@ -1,0 +1,50 @@
+.example-card {
+    max-width: 350px;
+    /* max-height: 500px; */
+  }
+p{
+    color: gray;
+}
+h6{
+    color: rgb(94, 93, 93);
+    font-size: 20px;
+}
+.example-header-image {
+    background-image: url(https://sneat-vuetify-admin-template.vercel.app/assets/avatar-1-19a9226d.png);
+    background-size: cover;
+    margin: -22px 19px;
+    z-index: 6;
+    height: 70px;
+    width: 70px;
+    border: 3px solid white;
+  }
+  .primary{
+    float: right;
+    margin-top: -50px;
+  }
+  .image{
+    background-size: cover;
+    float: right;
+    display: flex;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    border: 2px solid white;
+    margin-top: -30px;
+  }
+  .image4{
+    background-image: url('https://sneat-vuetify-admin-template.vercel.app/assets/avatar-1-19a9226d.png');
+  }
+  .image3{
+    background-image: url('https://sneat-vuetify-admin-template.vercel.app/assets/avatar-2-e08c0d9d.png');
+  }
+  .image2{
+    background-image: url('https://sneat-vuetify-admin-template.vercel.app/assets/avatar-3-c4f5e15c.png');
+  }
+  .image1{
+    background-image: url('https://sneat-vuetify-admin-template.vercel.app/assets/avatar-4-51fa719c.png');
+  }
+  .image:hover{
+    height: 50px;
+    width: 50px;
+  }

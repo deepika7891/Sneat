@@ -1,0 +1,89 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="bg-white m-4 border-0 rounded p-2">
+            <h4>Horizontal Form</h4>
+            <form #horizontalForm="ngForm">
+                <div class="form-group" style="margin: 40px;">
+                    <label>First Name</label>
+                    <input type="text" name="name" placeholder="john" class="h-form" ngModel><br>
+                </div>
+                <div class="form-group" style="margin: 40px;">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="john123@gmail.com" class="h-form" ngModel><br>
+                </div>
+                <div class="form-group" style="margin: 40px;">
+                    <label>Mobile</label>
+                    <input type="tel" name="mobile" placeholder="123456789" class="h-form" ngModel><br>
+                </div>
+                <div class="form-group" style="margin: 40px;">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="*****" class="h-form" ngModel><br>
+                </div>
+            </form>
+
+            <div class="d-flex">
+                <button mat-raised-button color="primary" class="m-4"
+                    (click)="submitForm(horizontalForm.value)">SUBMIT</button>
+                <button mat-stroked-button color="Light" class="m-4" (click)="resetForm(horizontalForm)">RESET</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="bg-white m-4 border-0 rounded p-2" style="height: 443px;">
+            <h4>Vertical Form with Icons</h4>
+            <form #verticalForm="ngForm">
+                <div class="d-flex">
+                    <mat-icon>account_circle</mat-icon>
+                    <input type="text" name="name" placeholder="firstname" class="v-form" ngModel>
+                </div>
+                <div class="d-flex">
+                    <mat-icon>mail</mat-icon>
+                    <input type="email" name="email" placeholder="email" class="v-form" ngModel>
+                </div>
+                <div class="d-flex">
+                    <mat-icon>call</mat-icon>
+                    <input type="tel" name="mobile" placeholder="123456789" class="v-form" ngModel>
+                </div>
+                <div class="d-flex">
+                    <mat-icon>lock_open</mat-icon>
+                    <input type="password" name="password" placeholder="password" class="v-form" ngModel>
+                </div>
+            </form>
+
+            <div class="d-flex">
+                <button mat-raised-button color="primary" class="m-4"
+                    (click)="submitForm(verticalForm.value)">SUBMIT</button>
+                <button mat-stroked-button color="Light" class="m-4" (click)="resetForm(verticalForm)">RESET</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- multiple form  -->
+    <div class="multiple">
+        <h4>Multiple Column</h4>
+        <div class="row">
+            <form #multipleForm="ngForm">
+                <div class="d-flex">
+                    <input type="text" name="name" placeholder="firstname" class="m-form" ngModel>
+                    <input type="text" name="name" placeholder="Lastname" class="m-form" ngModel>
+                </div>
+                <div class="d-flex">
+                    <input type="email" name="email" placeholder="email" class="m-form" ngModel>
+                    <input type="text" name="city" placeholder="city" class="m-form" ngModel>
+                </div>
+                <div class="d-flex">
+                    <input type="text" name="country" placeholder="country" class="m-form" ngModel>
+                    <input type="text" name="company" placeholder="company" class="m-form" ngModel>
+                </div>
+                
+            </form>
+        </div>
+        <div class="d-flex mt-3">
+            <button mat-raised-button color="primary" class="m-4"
+                (click)="submitForm(multipleForm.value)">SUBMIT</button>
+            <button mat-stroked-button color="Light" class="m-4"
+                (click)="resetForm(multipleForm.value)">RESET</button>
+        </div>
+    </div>
+</div>

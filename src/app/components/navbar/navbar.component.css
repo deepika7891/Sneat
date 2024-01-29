@@ -1,0 +1,50 @@
+.layout-nav {
+    position: fixed;
+    flex-direction: column;
+    inset-inline-start: 0;
+    height: 100%;
+    background-color: white;
+    width: 226px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.logo {
+    color: rgb(71, 69, 69);
+    margin: 32px 70px;
+}
+
+.matlist{
+    display: flex;
+    padding: 12px;
+    margin-left: 0px;
+    color: gray;
+    cursor: pointer;
+}
+.maticon{
+    margin-left: 15px;
+}
+a{
+    text-decoration: none;
+    color: gray;
+}
+.matitem{
+    margin-left: 10px;
+}
+.matlist:hover{
+    background-color: #e7e7ff;
+    color: #6d70ff;
+    border-radius: 5px;
+}
+p{
+    color: #6d70ff;
+    padding: 0px;
+    margin: 14px 25px;
+    font-size: 18px;
+}
+.upgrade{
+    height: 220px;
+    width: 210px;
+    margin-bottom: 0;
+    /* position: fixed; */
+}

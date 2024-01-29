@@ -1,0 +1,114 @@
+<div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card mb-3 mt-4 border-0" style="max-width:700px;">
+                <div class="row no-gutters">
+
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: #6d70ff;">Congratulations John! 🎉</h5>
+                            <p class="card-text" style="color: gray;">You have done 72% 🤩 more sales today.
+                                Check your new raising badge in your profile.</p>
+                            <button type="button" class="btn btn-light border-1" style="color: #6d70ff;">VIEW
+                                BADGE</button>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="https://sneat-vuetify-admin-template.vercel.app/assets/illustration-john-light-0061869a.png"
+                            class="card-img" alt="...">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card border-0 w-100" style="margin-top: 1.5em; height: 180px;">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABUCAMAAAArteDzAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAA/UExURXDaOKfrg6DpeIbkVHfdP3PZOaXqgEdwTHTgO3LbO6nrhoPhT5vocnHeN5jnbqLpe3HeN3HeN3LeN6nqh3HdN5HlihcAAAATdFJOUynwv0IzEOEAVB75c6S8jdD74PTaCzX4AAABo0lEQVRYw+2Z25aCMAxFe6P2ggUJ//+tgzK61AqmbbJmHjgvvu11SNLUJuL0q8570STvuztLrD+NwAf4CdoJMnV3KCFzpQpi5o26QAWxrlBPDfULVJDrJDp6aCc8PdTzQA8d+lu5y3Q5n6OhZJppXnV2hEbnh+iwT9B5jI0w7UwGXcxW82JvJQCEmEHHqY7q1BV4k82djjUR0AqelEMXbHG2+gDfoKVhNQPAd+hcZFVbQEFLrGoJOOiMP7Em87kJxReAAjQU/f0J6KFGFkAv2AKFAuiEzHzYhJqx1ulno7C2l3fqhKx+uwMVxr0KWaYa9qCVShxQxQEdOKAbecplC/q+xEIh4DtUQEPBMTgFTR9TCO3ZzyXb6/RD+ttPVK6+4G5Gpz8K+qBKio7yLlX03wRXqcEJequKoacEXQiNtPW0f/c1fDzmWNmal5TZD6vUVf3f7Hm1uvZa2Y6ranhFxs8hkKntTZbysxX65seuScNLz7K9FhQySQ1WBmkHlWiIhw79h7kk0/yUZXzMMujmGcmzLA941hwsCxme1RHPkot6HfcDFH1zDC6jkicAAAAASUVORK5CYII="
+                            height="50px" width="50px" class="m-3" alt="profit">
+                        <h4 class="p-2">Profit</h4>
+                        <h4 style="margin-left: 15px; color: gray;">$33,123</h4>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card border-0 w-100" style="margin-top: 1.5em; height: 180px;">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABUCAMAAAArteDzAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAzUExURQDB7JDl93ng9oHi9kLS8wDE8QDG6UdwTGLZ9Gbc9WLa9CnN80DT8prn92fb8wTD7EvV8cfpimwAAAANdFJOUyn8z+J9HhAAk+StQ2b3/5lYAAABCklEQVRYw+3Z3RJDMBCG4Y1ko0ES93+1VcpoDyphvxkq74mzZ+hPkKX6nWWmQzHb2aLpcBBc4BVqSSw7o4LmpJKwOaoDSsK9UJZGeUBJvJqsPGqJ5VHGoKVSCV7bmR+1u8gm/M51+agLm2WrzbYZHOBEQ8j9XFPMYBBn+r+odwg0Rc1HvdJuo2qsMRloeroFoF4jUN8gUI1AFQL1p0eX/4EYqvq4JIWqGOXRCEB7BBoBaLg3quJVvqiv65f68fcI9EOVW6VWK8o9F+kToApxN9WI+77JQxOf0aocs0p+6ZF+kprqHkntePMrlU7TdfZPIdvHkI1uzJY8ZHiAGXNABjKY0RFmyCU9jnsCXE1nB7zpl7oAAAAASUVORK5CYII="
+                            height="50px" width="50px" class="m-3" alt="profit">
+                        <h4 class="p-2">Sales</h4>
+                        <h4 style="margin-left: 15px; color: gray;">$4,679</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="chart">
+                <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card border-0 w-100" style="margin-top: 2.5em; height: 200px;">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABUCAMAAAArteDzAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABLUExURf8+H/9WO/9+af9AIP9DI/9jSP9GJkdwTP9IKf9mM/9UN/+Jdv+Gcv9TNf9DI/98Zf91XP9WPP8+Hf8/Hv97Zf8+HP8+HP+Ld/8+HeRD/C8AAAAXdFJOUylaydQg2WgAEgVJ+vDUNOKVffXmuJGzNH5j8AAAAbZJREFUWMPtmddyxCAMRSnuYFhX+P8vjWtc4jIWIjPJ+Dz64Yy8V6A1kHgkTYKAOBEESTrJyKQkKEzaQYqkHLSzFNE5Wgmyc7CSOCXIpJ00wZYmMUEvtCuVJPjShAT40sCP9OXlN8mYNGuElLr+ZG5OYfYMT3ThIGXmDA2vVpxKjaBAJzUXSGCtxZXUMJj0cyk1FDmngRok1ddSiR3+0ACg1jc3QPKP7qQKP3wjOcBa30i1bdE7yuTWPm9VeSPl9nmp6sYpSmtLhbmddIS2I0IOn/fSAjd83Tttgxq+qCykUnnXTz0UczsJR6dViOHPTo43S8T07s9zOu+osJqdj3/S4/CFzhfl47ffzhIZduR5zku7JnKaJaE9onWbJYfSSrnNkvzImTnOEv7TyTPXWVLulWUDGHrbjpL7KgvIIN1tJ3oJvGmKCGbcz5Lv8EunP+b0OHzuJD0Jv0WUVtBd6eL1BXyxn/fpskjdvqC6TbpmjNWs352W1kf65tss0MqHtEWSNusFT5Gkql2cEUEji0aoIi8v/4q/c37q5fjYy0G3lyN5P5cHXq45/FzI+Lk68nPJhX0d9wXmNHzutiJOQQAAAABJRU5ErkJggg=="
+                            height="50px" width="50px" class="m-3" alt="profit">
+                        <h4 class="p-2">Payments</h4>
+                        <h4 style="margin-left: 15px; color: gray;">$2,468</h4>
+                        <div class="d-flex" style="color: #0011ff; margin-left: 15px;">
+                            <mat-icon>arrow_drop_up</mat-icon>
+                            <p>28.14%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card border-0 w-100" style="margin-top: 10em; height: 200px;">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABUBAMAAADuRQ3yAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAwUExURWpq/0dwTLi5/6ep/5GU/25u/3Nz/7i6/62v/6Kj/4mJ/5ye/8PE/6Wm/2ls/4yP/xRl4mMAAAAMdFJOUykA7N9eHhD8wpNJe6BLX6QAAAEISURBVEjH7de/DsFQFMfxQ7SJjYFZOorNauhgMrGYa/AMliZGA4MHMInRA5gZ/Ek9gtmEFxDc1oTf5RxBKuk36fYZbnqTe++htKpZpacZdV+R+l7AAF+pQ4xMn2aJVUNRh0dNRYlZmjJcWqMUl8bI4VKTqlxqSGhU1HtNrIe6WA49UB7JhIvo3AY07sFygA4wXQJawnQGqKfpZ9TSBOhGUxhpUVMYt0BK22eVy6J7vy2HrgN64NMdawEnnx55f6Cl+pMt+DgtYDkFtIfpAtAxpitAk5j2iXsULuGpneiAldqay2BUvqsSXZBRN33n/Sp4QAue5YLHvmCEkAwmgnFHMERJRjPuwHcBZiyOwHBas44AAAAASUVORK5CYII="
+                            height="50px" width="50px" class="m-3" alt="profit">
+                        <h4 class="p-2">Transactions</h4>
+                        <h4 style="margin-left: 20px; color: gray;">$14,857</h4>
+                        <div class="d-flex" style="color: red; margin-left: 15px;">
+                            <mat-icon>arrow_drop_down</mat-icon>
+                            <p>-14.82%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row">
+                <div class="card border-0 w-100" style="margin-top: 1.5em; height: 150px;">
+                    <h4 class="p-2 text-center">Profile Report</h4>
+                   
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card border-0 w-100 p-4" style="margin-top: 1.5em; height: 350px; color: gray;">
+                <h4>Order  Statistics </h4>
+                <p>42.82k Total Sales</p>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <h1>8,259</h1>
+                        <p>Total orders</p>
+                    </div>
+                    <div class="col-sm-7">
+                        <div>
+                            <canvasjs-chart [options]="chartOption" [styles]="{width: '100%', height:'250px'}"></canvasjs-chart>    
+                        </div>   
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card border-0 w-100" style="margin-top: 1.5em; height: 350px; color: gray;">
+                <canvasjs-chart [options]="piechart" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card border-0 w-100" style="margin-top: 1.5em; height: 350px; color: gray;">
+                hello
+            </div>
+        </div>
+    </div>
+</div>

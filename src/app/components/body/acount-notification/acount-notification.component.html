@@ -1,0 +1,44 @@
+<!-- <p>acount-notification works!</p> -->
+<div class="account card border-0 w-100 ">
+    <h3 class="m-4">Recent Devices</h3>
+    <p>We need permission from your browser to show notifications.<span style="color: blueviolet;"> Request
+            Permission</span></p>
+    <table class="m-4">
+        <thead>
+            <tr>
+                <th [style.width.%]="columnWidth">TYPE</th>
+                <th class="centered-cell">EMAIL</th>
+                <th class="centered-cell">BROWSER</th>
+                <th class="centered-cell">APP</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of data" class="custom-row">
+                <td>{{item.type}}</td>
+                <td class="centered-cell">
+                    <input type="checkbox">
+                </td>
+                <td class="centered-cell">
+                    <input type="checkbox">
+                </td>
+                <td class="centered-cell">
+                    <input type="checkbox">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h5 class="m-4">When should we send you notifications?</h5>
+    <mat-form-field style="width: 50%; margin-left: 15px;">
+        <mat-label></mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="option">
+          @for (option of options; track option) {
+            <mat-option [value]="option.value">{{option.viewValue}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <div class="d-flex">
+          <button mat-raised-button color="primary" class="m-4">SAVE CHANGES</button>
+          <button mat-stroked-button color="Light"  class="m-4">RESET</button>
+      </div>
+</div>

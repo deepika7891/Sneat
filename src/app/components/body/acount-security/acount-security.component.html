@@ -1,0 +1,52 @@
+<div class="account card border-0 w-100 ">
+    <h5 class="m-4">Change Password</h5>
+
+    <!-- <mat-form-field>
+        <mat-label>Currrent Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" placeholder="*****">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field> -->
+    <div class="row">
+        <div class="col-md-5">
+            <div class="d-flex">
+                <input matInput [type]="hide ? 'password' : 'text'" type="password" placeholder="*****">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="d-flex">
+                <input matInput [type]="hide ? 'password' : 'text'" type="password" placeholder="*****">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="d-flex">
+                <input matInput [type]="hide ? 'password' : 'text'" type="password" placeholder="*****">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <ul>Password Requirements:</ul>
+    <li>Minimum 8 characters long - the more, the better</li>
+    <li>At least one lowercase character</li>
+    <li>At least one number, symbol, or whitespace character</li>
+
+    <div class="d-flex">
+        <button mat-raised-button color="primary" class="m-4">SAVE CHANGES</button>
+        <button mat-stroked-button color="Light" class="m-4">RESET</button>
+    </div>
+</div>

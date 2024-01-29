@@ -1,0 +1,27 @@
+<div>
+    <div class="acount-header">
+        <button Button color="light" (click)="Account()">
+            <mat-icon >account_box</mat-icon>
+            Account
+        </button>
+        <button Button color="light" (click)="Security()">
+            <mat-icon>https</mat-icon>
+            Security
+        </button>
+        <button Button color="light" (click)="Notification()">
+            <mat-icon>notifications</mat-icon>
+            Notification</button>
+    </div>
+
+
+    <div id="Account" *ngIf="account">
+        <app-account></app-account>
+    </div>
+    <div id="Security" *ngIf="security">
+        <app-acount-security></app-acount-security>
+    </div>
+    <div id="Notification" *ngIf="notification">
+        <app-acount-notification></app-acount-notification>
+    </div>
+
+</div> 

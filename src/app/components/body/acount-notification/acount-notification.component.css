@@ -1,0 +1,19 @@
+.account{
+    min-height: 600px;
+    border-radius: 10px;
+    color: gray;
+}
+h3,p{
+    color: gray;
+    font-weight: 400;
+}
+p{
+    margin-left: 20px;
+}
+.centered-cell {
+    text-align: center;
+}
+.custom-row{
+    height: 70px;
+    border-bottom: 1px solid #ccc;
+}
