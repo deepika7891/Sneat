@@ -38,7 +38,7 @@ mat-icon {
 
 /* multiple column */
 .multiple {
-    height: 400px;
+    height: 500px;
     background-color: white;
     width: 95%;
     margin-left: 25px;
@@ -46,7 +46,7 @@ mat-icon {
 }
 
 .m-form {
-    width: 90%;
+    width: 100%;
     border-radius: 10px;
     padding: 10px;
     margin: 10px;

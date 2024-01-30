@@ -1,22 +1,42 @@
-import { Component} from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-form-layout',
   templateUrl: './form-layout.component.html',
-  styleUrl: './form-layout.component.css'
+  styleUrls: ['./form-layout.component.css'],
 })
-export class FormLayoutComponent{
+export class FormLayoutComponent implements OnInit {
+  private apiUrl = 'https://localhost:7153/api/Senat/AddSneat';
+  newadmin = {
+    fullName: '',
+    email: '',
+    PhoneNumber: '',
+    State: '',
+    Country: '',
+    CompanyName: '',
+  };
 
-  submitForm(...forms: any[]): void {
-    console.log('Form Submitted:', forms);
-    alert("forn submitted");
-    
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {}
+
+  submitForm(form:any[]): void {
+    this.http.post(this.apiUrl, form).subscribe(
+      (data) => {
+        alert('Form submitted successfully');
+        console.log('Response:', data);
+      },
+      (error) => {
+        alert('Error submitting form');
+        console.error('Error:', error);
+      }
+    );
   }
 
-  resetForm(...forms: any[]): void {
-    forms.forEach(form => form.resetForm());
-    alert("reset your form");
+  resetForm(form: NgForm): void {
+    form.resetForm();
+    alert('Reset your form');
   }
-
 }

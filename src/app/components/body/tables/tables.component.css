@@ -1,5 +1,8 @@
 table {
     width: 100%;
+    /* min-height: 400px; */
+    border-radius: 10px;
+    padding: 10px;
 }
 h5{
     color: rgb(94, 94, 150);
@@ -11,3 +14,33 @@ p{
     color: gray;
 }
 
+
+.my-custom-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+ 
+  .my-custom-table th {
+    /* background-color: #ffffff; 
+    border: 1px solid black; */
+    color: #222121; 
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .my-custom-table td {
+    /* border: 1px solid #060606;  */
+    /* padding: 8px;  */
+    text-align: center;
+    /* border-bottom: 2px solid black; */
+  }
+  
+ tr{
+    height: 50px;
+ }
+  /* .my-custom-table tr:nth-child(even) {
+    background-color: #cf4949; 
+    
+  } */
+  
