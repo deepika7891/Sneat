@@ -1,12 +1,39 @@
-.chart{
+.chart {
     border-radius: 15px;
     margin-top: 1em;
     width: 700px;
 }
-.card-img{
+
+.card-img {
     margin-right: 10px;
 }
-h4{
+
+h4 {
     font-weight: 400;
     color: gray;
+}
+
+.custom-table th,
+.custom-table td {
+    /* border-right: 1px solid #ddd;  */
+    padding: 8px;
+    text-align: left;
+    margin-right: 10px;
+    /* Add space between columns */
+}
+ 
+.custom-row {
+    line-height: 2.2;
+    /* border-bottom: 1px solid gray; */
+    text-align: left;
+    margin-top: 10px;
+    height: 50px;
+    /* Adjust the line height as needed */
+}
+
+.custom-row:hover {
+    /* text-decoration: underline; */
+    cursor: pointer;
+    /* background-color: rgb(163, 161, 161) ; */
+    color: red;
 }

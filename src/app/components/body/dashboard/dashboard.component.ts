@@ -74,6 +74,15 @@ export class DashboardComponent {
 		type: "line",
 		dataPoints: this.generateRandomData()
 	  }]
+
 	}
 
+	transactions=[
+		{no:1,entry:"Payal",trans:"Send money",amount:'+$82.6'},
+		{no:2,entry:"Wallet",trans:"Mac'D",amount:'+$270.69'},
+		{no:3,entry:"Transfer",trans:"Refund",amount:'+$637.91'},
+		{no:4,entry:"Credit Card",trans:"Ordered Food",amount:'+$838.71'},
+		{no:5,entry:"Wallet",trans:"Starbucks",amount:'+$83.71'},
+		{no:6,entry:"MasterFood",trans:"Ordred Food",amount:'+$267.90'},
+	]
 }
