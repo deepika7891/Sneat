@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { DataService } from '../../../service/data.service';
 
 @Component({
   selector: 'app-tables',
@@ -7,17 +7,19 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./tables.component.css'],
 })
 export class TablesComponent implements OnInit {
-  private apiUrl = 'https://localhost:7153/api/Senat';
   admins: any[] = [];
 
-  constructor(private http: HttpClient) {}
+  // constructor(private http: HttpClient) { }
 
-  ngOnInit(): void {
+  constructor(private dataService : DataService) {}
+
+  ngOnInit() {
     this.fetchTableData();
   }
 
-  fetchTableData(): void {
-    this.http.get<any[]>(this.apiUrl).subscribe(
+
+  fetchTableData() {
+    this.dataService.fetchTableData().subscribe(
       (data) => {
         this.admins = data;
         console.log('Table Data:', this.admins);
@@ -27,4 +29,21 @@ export class TablesComponent implements OnInit {
       }
     );
   }
+
+  distroy(fullName: string) {
+    if (confirm("Are you sure you want to delete this?")) {
+      this.dataService.delete(fullName).subscribe(
+        () => {
+          console.log("Row deleted successfully");
+          alert("Deleted");
+        },
+        (error) => {
+          this.fetchTableData();
+          console.error("Error deleting row:", error);
+        }
+      );
+    }
+  }
+
 }
+
