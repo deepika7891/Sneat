@@ -16,7 +16,7 @@ import { TablesComponent } from './components/body/tables/tables.component';
 import { FormLayoutComponent } from './components/body/form-layout/form-layout.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { ErrorComponent } from './pages/error/error.component';
+import { HomeComponent } from './components/home/home.component';
 
 // import { HttpModule } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -54,10 +54,10 @@ import { AcountNotificationComponent } from './components/body/acount-notificati
     FormLayoutComponent,
     LoginComponent,
     RegisterComponent,
-    ErrorComponent,
     AccountComponent,
     AcountSecurityComponent,
-    AcountNotificationComponent
+    AcountNotificationComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

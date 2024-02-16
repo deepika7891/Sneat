@@ -4,28 +4,47 @@
         <h4 class="m-4">Adventure starts here 🚀</h4>
         <p class="m-4">Make your app management easy and fun!</p>
 
-        <form>
-            <input type="text" name="name" placeholder="john" class="input">
-            <input type="email" name="email" placeholder="johndoe@email.com" class="input">
+        <form #registerForm="ngForm" (ngSubmit)="SignUp()" [formGroup]="RegisterForm">
+            <input type="text" name="UserName" formControlName="username" placeholder="john" [(ngModel)]="UserName"
+                class="input">
+            <small>
+                <span *ngIf="username && username.invalid && username.touched" class="text-danger">
+                    UserName is required at least 5 characters 
+                </span>
+            </small>
+            <input type="email" name="Email" placeholder="johndoe@email.com" class="input" [(ngModel)]="Email" 
+                formControlName="email">
+            <small>
+                <span *ngIf="email && email.invalid && email.touched" class="text-danger">
+                    Email is required
+                </span>
+            </small>
             <div class="d-flex">
-                <input matInput [type]="hide ? 'password' : 'text'" type="password" placeholder="*****" class="input">
+                <input matInput [type]="hide ? 'password' : 'text'" type="password" placeholder="********" class="input"
+                    name="Password" [(ngModel)]="Password" formControlName="password">
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                     [attr.aria-pressed]="hide" class="hide-btn">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
             </div>
+            <small>
+                <span *ngIf="password && password.invalid && password.touched" class="text-danger">
+                    Password should be at least 8 characters long
+                </span>
+            </small>
             <div class="d-flex m-2">
                 <input type="checkbox" name="checkbox">
                 <p>I agree to <span> privacy policy & terms</span></p>
             </div>
 
+            <button class="btn btn-primary m-4 signup-btn" type="submit button" [disabled]="RegisterForm.invalid">
+                signup
+            </button>
         </form>
 
-        <button mat-raised-button color="primary" class="m-4 signup-btn">SIGN UP</button>
-
         <div class="d-flex" style="margin-left: 60px;">
-            <p>Already have an account? </p>
-            <span style="margin-top: 10px;" >Sign in instead</span>
+            Already have an account?
+            <a routerLink="/"> Sign in instead</a>
         </div>
 
     </div>

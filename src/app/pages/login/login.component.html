@@ -1,37 +1,49 @@
 <div class="d-flex justify-content-center align-item-center">
     <div class="login-form">
-        <h2 class="mt-4 text-center">{{login}}</h2>
+        <h2 class="mt-4 text-center">sneat</h2>
         <h4 class="m-4">Welcome to sneat! 👋🏻</h4>
         <p class="m-4">Please sign-in to your account and start the adventure</p>
 
-        <form>
-            <input type="email" name="email" placeholder="johndoe@email.com"  class="input">
+        <form [formGroup]="loginForm" #login="ngForm" (ngSubmit)="loginUser()">
+            <input type="email" name="Email" formControlName="email" placeholder="johndoe@email.com" [(ngModel)]="Email"
+                class="input">
+            <small>
+                <span *ngIf="email && email.invalid && email.touched" class="text-danger">
+                    Entering an email-id is necessary!
+                </span>
+            </small>
             <div class="d-flex">
-                <input matInput [type]="hide ? 'password' : 'text'" type="password" placeholder="*****" class="input">
+                <input matInput [type]="hide ? 'password' : 'text'" type="password" placeholder="********" class="input"
+                    name="Password" formControlName="password" [(ngModel)]="Password">
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                     [attr.aria-pressed]="hide" class="hide-btn">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
             </div>
-
+            <small>
+                <span *ngIf="password && password.invalid && password.touched" class="text-danger">The password should
+                    be at least 8 characters long</span>
+            </small>
             <div class="row">
                 <div class="col-md-6">
                     <div class="d-flex m-2">
                         <input type="checkbox" name="checkbox">
-                       <p>Remender me</p> 
+                        <p>Remender me</p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <p class="m-4" style="color: blueviolet; float: right;">forget Password ?</p>
                 </div>
             </div>
+            <button type="button submit" class="btn btn-primary m-4 login-btn" [disabled]="loginForm.invalid">
+                Login
+            </button>
         </form>
 
-        <button mat-raised-button color="primary" class="m-4 login-btn">Login</button>
-        
-        <div class="d-flex" style="margin-left: 60px;">
-            <p>New on our platform? </p>
-            <span style="color: blueviolet;margin-top: 10px;">Create an account</span>
+
+        <div class="d-flex" style="margin-left: 60px ; cursor: pointer;">
+            New on our platform?
+            <a routerLink="/register"> Create an account</a>
         </div>
 
     </div>

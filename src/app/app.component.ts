@@ -8,14 +8,4 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class AppComponent {
   title = 'sneat';
-
-  is404Page: boolean = false;
-
-  constructor(private router: Router) {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        this.is404Page = event.url === '/**';
-      }
-    });
-  }
 }
