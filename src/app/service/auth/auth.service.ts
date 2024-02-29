@@ -1,36 +1,45 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-//  private isAuthenticated = false;
+
 
   private apiUrl = 'https://localhost:7153/api/register';
-  constructor(private httpclient: HttpClient,private route:Router) { }
 
+  constructor(private httpclient: HttpClient, private route: Router) { }
 
-  loginCheck(Email:string, Password:string): Observable<any> {
-    const url = `${this.apiUrl}/Login`;
-    const login = {Email,Password};
+  isAuthenticated = false;
+
+  isLoggedIn(): boolean {
+    return this.isAuthenticated;
+  }
+
+  // login user
+  loginCheck(Email: string, Password: string): Observable<any> {
+
+    const url = `${this.apiUrl}/login`;
+    const login = { Email, Password };
     return this.httpclient.post(url, login);
   }
 
+  // register user
   register(UserName: string, Email: string, Password: string): Observable<any> {
     const url = `${this.apiUrl}/signup`;
     const userdata = { UserName, Email, Password };
     return this.httpclient.post(url, userdata);
   }
 
-  // isLoggin():boolean{
-  //   return this.isAuthenticated ;
-  // }
-
-  logout():void{
-    // this.isAuthenticated = false;
-    this.route.navigate(['/']);
+  // logout our login page
+  logout() {
+    // redirect to login page
+    // window.location.href = '/login';
+    this.route.navigate(['/login'])
+    this.isAuthenticated = false;
   }
 }
+

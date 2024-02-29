@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../service/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,7 @@ import { AuthService } from '../../service/auth/auth.service';
 })
 export class HeaderComponent {
      
-  constructor (private authService : AuthService){}
+  constructor (private authService : AuthService , private router : Router){}
 
       logout() : void{
         if(confirm("are you sure logout your id ?")){
@@ -19,4 +20,10 @@ export class HeaderComponent {
           
         }
       }
+
+      profile(){
+        this.router.navigate(['/home/account-setting'])
+      }
+
+      hello : string = "Ram";
 }

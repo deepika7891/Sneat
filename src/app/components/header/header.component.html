@@ -14,11 +14,32 @@
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with notifications icon">
       <mat-icon>notifications</mat-icon>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with person icon">
+    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with person icon">
       <mat-icon>person</mat-icon>
+    </button> -->
+    <!-- <button mat-button mat-icon-button class="example-icon" aria-label="Example icon-button with person icon"
+      [matMenuTriggerFor]="beforeMenu"><mat-icon>person</mat-icon></button>
+    <mat-menu #beforeMenu="matMenu" xPosition="before">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item mat-icon-button class="example-icon" aria-label="Example icon-button with person icon"
+        style="margin-right: 10px;" (click)="logout()">
+        <mat-icon>input</mat-icon>
+      </button>
+    </mat-menu> -->
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"
+      matTooltip={{hello}} matTooltipClass="example-tooltip">
+      <mat-icon>account_box</mat-icon>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with person icon" style="margin-right: 10px;" (click)="logout()">
-      <mat-icon>input</mat-icon>
-    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="profile()">
+        <mat-icon>person</mat-icon>
+        <span>profile</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>input</mat-icon>
+        <span>Sign out</span>
+      </button>
+    </mat-menu>
   </mat-toolbar>
 </div>

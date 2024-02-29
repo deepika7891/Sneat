@@ -29,14 +29,19 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import { FormsModule } from '@angular/forms';
-import {MatTableModule} from '@angular/material/table';
-import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AccountComponent } from './components/body/account/account.component';
 import { AcountSecurityComponent } from './components/body/acount-security/acount-security.component';
 import { AcountNotificationComponent } from './components/body/acount-notification/acount-notification.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
+import { AuthService } from './service/auth/auth.service';
+import { AuthGuard } from './auth/authguard.guard';
 
 
 @NgModule({
@@ -70,11 +75,13 @@ import { AcountNotificationComponent } from './components/body/acount-notificati
     CanvasJSAngularChartsModule,
     FormsModule,
     MatTableModule,
-    MatSelectModule,MatInputModule,MatFormFieldModule,
+    MatSelectModule, MatInputModule, MatFormFieldModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatMenuModule,
+    MatTooltipModule
   ],
-  providers: [],
+  providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
