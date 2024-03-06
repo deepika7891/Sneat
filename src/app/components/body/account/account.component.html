@@ -23,33 +23,33 @@
         <form #myForm="ngForm">
             <div class="d-flex">
                 <input type="text" placeholder="John" name="firstName" class="input-form" ngModel required>
-                <input type="text" placeholder="Doe" name="lastName" class="input-form" ngModel required>
+                <input type="text" placeholder="Doe" name="lastName" class="input-form" ngModel required disabled>
             </div>
             <div class="d-flex">
                 <input type="email" name="email" placeholder="johnDoe@example.com" class="input-form" ngModel required>
-                <input type="text" name="organization" placeholder="theme Selection" class="input-form" ngModel required>
+                <input type="text" name="organization" placeholder="theme Selection" class="input-form" ngModel  disabled>
             </div>
             <div class="d-flex">
-                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="+91 123456789" class="input-form" ngModel required>
-                <input type="text" name="address" placeholder="123 Main St, New York, NY 10001" class="input-form" ngModel required>
+                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="+91 123456789" class="input-form" ngModel disabled >
+                <input type="text" name="address" placeholder="123 Main St, New York, NY 10001" class="input-form" ngModel disabled>
             </div>
             <div class="d-flex">
-                <input type="text" name="state" placeholder="New york" class="input-form" ngModel required>
-                <input type="number" name="zip" placeholder="Zip-Code like 10001" class="input-form" ngModel required>
+                <input type="text" name="state" placeholder="New york" class="input-form" ngModel disabled>
+                <input type="number" name="zip" placeholder="Zip-Code like 10001" class="input-form" ngModel disabled>
             </div>
             <div class="d-flex">
                 <div class="form-group input-form">
                     <label for="exampleFormControlSelect1"></label>
-                    <select class="form-control" id="exampleFormControlSelect1" style="margin-top: -28px; border: none;">
+                    <select class="form-control" id="exampleFormControlSelect1" style="margin-top: -28px; border: none;" disabled>
                       <option>UK</option>
                       <option>Canda</option>
                       <option>USA</option>
                       <option>AUstralia</option>
                     </select>
                   </div>
-                <div class="form-group input-form">
+                <div class="form-group input-form" >
                     <label for="exampleFormControlSelect1"></label>
-                    <select class="form-control" id="exampleFormControlSelect1" style="margin-top: -28px; border: none;">
+                    <select class="form-control" id="exampleFormControlSelect1" style="margin-top: -28px; border: none;" disabled>
                       <option>English</option>
                       <option>hindi</option>
                       <option>Spanish</option>
@@ -63,8 +63,8 @@
     </div>
     
     <div class="d-flex">
-        <button mat-raised-button color="primary" class="m-4" (click)="saveChanges(myForm.value)">SAVE CHANGES</button>
-        <button mat-stroked-button color="Light" class="m-4" (click)="resetForm(myForm)">RESET</button>
+        <button mat-raised-button color="primary" class="m-4" (click)="saveChanges(myForm.value)" disabled>SAVE CHANGES</button>
+        <button mat-stroked-button color="Light" class="m-4" (click)="resetForm(myForm)" disabled>RESET</button>
     </div>
     
 </div>

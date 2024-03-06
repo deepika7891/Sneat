@@ -10,6 +10,7 @@ import { catchError } from 'rxjs';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+
   hide = true;
   Email: string = '';
   Password: string = '';
@@ -21,6 +22,7 @@ export class LoginComponent {
     Validators.maxLength(24)])
   })
 
+  // userEmail :string = this.Email;
 
   constructor(private authService: AuthService,
     private router: Router) { }
@@ -33,33 +35,26 @@ export class LoginComponent {
     return this.loginForm.get('password');
   }
 
-  // loginUser() {
-  //   this.authService.loginCheck(this.Email, this.Password).subscribe
-  //     ((response: any) => {
-  //       console.log('Login response:', response);
-
-  //       if (response) {
-  //         console.log('Login successful:', response);
-  //         alert("login")
-  //         this.clearForm();
-  //       } else {
-  //         console.error('User not registered or invalid login details:', response);
-  //       }
-
-  //     });
-  // }
-
   loginUser() {
     console.log("hello login here!");
+    // this.userEmail = this.loginForm.value.email;
 
     this.authService.loginCheck(this.Email, this.Password).subscribe(
       (response: any) => {
-        console.log('API response:', response);
+        console.log('API response:', response.email);
         this.authService.isAuthenticated = true; // Set isAuthenticated to true
         // alert("Successfully login");
         // alert(response)
-        alert("Successfully logged in. Username: " + response.email );
-        this.router.navigate(['/home'])
+        alert("Successfully logged in. Username: " + response.username);
+        const userObject = { user: response.username };
+        console.log(userObject);
+
+        //generate token set 
+        const generatedToken = this.generateSixDigitToken();
+        console.log('Generated 6-digit token:', generatedToken);
+        this.authService.setToken(generatedToken);
+
+        this.router.navigate(['/home', userObject])
         this.clearForm();
       },
       (error) => {
@@ -70,7 +65,9 @@ export class LoginComponent {
         }
         else {
           this.authService.isAuthenticated = false;
-          alert("something went wrong. try again!")
+          alert("email is not found sorry. try again!")
+          const storedToken = this.authService.getToken();
+          console.log('Stored token:', storedToken);
         }
       }
     );
@@ -87,7 +84,12 @@ export class LoginComponent {
     this.Password = '';
   }
 
-
+  generateSixDigitToken(): string {
+    const min = 100000; // Minimum 6-digit number
+    const max = 999999; // Maximum 6-digit number
+    const sixDigitToken = Math.floor(Math.random() * (max - min + 1)) + min;
+    return sixDigitToken.toString();
+  }
 
 }
 

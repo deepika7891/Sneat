@@ -42,6 +42,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { AuthService } from './service/auth/auth.service';
 import { AuthGuard } from './auth/authguard.guard';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -79,7 +81,9 @@ import { AuthGuard } from './auth/authguard.guard';
     ReactiveFormsModule,
     HttpClientModule,
     MatMenuModule,
-    MatTooltipModule
+    MatTooltipModule,NgxDatatableModule,
+    MatPaginatorModule,
+    MatPaginator
   ],
   providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]

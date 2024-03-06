@@ -1,53 +1,16 @@
-table {
-    width: 100%;
-    /* min-height: 400px; */
-    border-radius: 10px;
-    padding: 10px;
-}
-h5{
-    color: rgb(94, 94, 150);
-    font-size: 20px;
-    margin: 25px;
-    position: relative;
-}
-p{
-    color: gray;
-}
-
-
-.my-custom-table {
+.ngx-datatable.material{
     border-collapse: collapse;
     width: 100%;
-  }
-  
- 
-  .my-custom-table th {
-    /* background-color: #ffffff; 
-    border: 1px solid black; */
-    color: #222121; 
-    padding: 10px;
+    margin-top: 20px;
     text-align: center;
-  }
-  
-  .my-custom-table td {
-    /* border: 1px solid #060606;  */
-    /* padding: 8px;  */
-    text-align: center;
-    /* border-bottom: 2px solid black; */
-  }
-  
- tr{
-    height: 50px;
- }
-  /* .my-custom-table tr:nth-child(even) {
-    background-color: #cf4949; 
-    
-  } */
-  
-  mat-icon:hover{
-      color: red;
-  }
-  button{
-    background-color: transparent;
-    border: none;
-  }
+    /* background-color: white; */
+    /* border-radius: 20px; */
+    /* border: 1px solid black; */
+}
+
+input {
+    margin-left: 20px;
+    width: 50%;
+    padding-left: 10px;
+}
+

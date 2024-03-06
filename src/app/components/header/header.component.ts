@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AuthService } from '../../service/auth/auth.service';
 import { Router } from '@angular/router';
 
@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
      
+  @Input() data:any;
+  
   constructor (private authService : AuthService , private router : Router){}
 
       logout() : void{
@@ -25,5 +27,5 @@ export class HeaderComponent {
         this.router.navigate(['/home/account-setting'])
       }
 
-      hello : string = "Ram";
+      
 }

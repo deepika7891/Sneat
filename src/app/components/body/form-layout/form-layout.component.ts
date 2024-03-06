@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-layout',
@@ -9,6 +10,7 @@ import { NgForm } from '@angular/forms';
 })
 export class FormLayoutComponent implements OnInit {
   private apiUrl = 'https://localhost:7153/api/Senat/AddSneat';
+  
   newadmin = {
     fullName: '',
     email: '',
@@ -18,7 +20,23 @@ export class FormLayoutComponent implements OnInit {
     CompanyName: '',
   };
 
-  constructor(private http: HttpClient) {}
+  FullName : FormControl = new FormControl('',[Validators.required]);
+  email: FormControl = new FormControl('', [Validators.required, Validators.email]);
+  PhoneNumber : FormControl = new FormControl('',[Validators.required,Validators.minLength(10)]);
+  State : FormControl = new FormControl('',[Validators.required]);
+  Country : FormControl = new FormControl('',[Validators.required]);
+  CompanyName : FormControl = new FormControl('',[Validators.required]);
+
+  AdminForm = new FormGroup({
+      FullName : this.FullName,
+      email : this.email,
+      PhoneNumber : this.PhoneNumber,
+      State : this.State,
+      Country : this.Country,
+      CompanyName : this.CompanyName
+  })
+  
+  constructor(private http: HttpClient , private route:Router) {}
 
   ngOnInit(): void {}
 
@@ -27,6 +45,8 @@ export class FormLayoutComponent implements OnInit {
       (data) => {
         alert('Form submitted successfully');
         console.log('Response:', data);
+        // this.newadmin;
+        this.route.navigate(['home/tables'])
       },
       (error) => {
         alert('Error submitting form');
@@ -35,8 +55,5 @@ export class FormLayoutComponent implements OnInit {
     );
   }
 
-  resetForm(form: NgForm): void {
-    form.resetForm();
-    alert('Reset your form');
-  }
+  
 }

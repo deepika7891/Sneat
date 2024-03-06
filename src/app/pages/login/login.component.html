@@ -6,7 +6,7 @@
 
         <form [formGroup]="loginForm" #login="ngForm" (ngSubmit)="loginUser()">
             <input type="email" name="Email" formControlName="email" placeholder="johndoe@email.com" [(ngModel)]="Email"
-                class="input">
+                class="input" >
             <small>
                 <span *ngIf="email && email.invalid && email.touched" class="text-danger">
                     Entering an email-id is necessary!

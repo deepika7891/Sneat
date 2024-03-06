@@ -63,38 +63,83 @@
     <div class="multiple mt-4">
         <h4>Enter Admin details</h4>
         <div class="row">
-            <form #forms="ngForm">
-                <div class="d-flex">
-                    <input type="text" name="fullName" placeholder="Enter your name" class="m-form" ngModel>
+            <form #forms="ngForm" [formGroup]="AdminForm">
+                <!-- <div class="d-flex"> -->
+                    <input type="text" name="fullName" placeholder="Enter your name" class="m-form" ngModel
+                        formControlName="FullName">
+                        <small>
+                            <span *ngIf="FullName && FullName.invalid && FullName.touched" class="text-danger">
+                                FullName is required
+                            </span>
+                        </small>
                     <!-- <input type="text" name="name" placeholder="Lastname" class="m-form" ngModel> -->
+                <!-- </div> -->
+                <div class="d-flex">
+
+                    <!-- <div> -->
+                        <input type="email" name="email" placeholder="Enter your privacy email" class="m-form" ngModel
+                            formControlName="email">
+                        <small>
+                            <span *ngIf="email && email.invalid && email.touched" class="text-danger">
+                                Email is required
+                            </span>
+                        </small>
+                    <!-- </div> -->
+
+                    <!-- <div> -->
+                        <input type="tel" name="PhoneNumber" placeholder="Enter your valid number" class="m-form"
+                            ngModel formControlName="PhoneNumber">
+
+                        <small>
+                            <span *ngIf="PhoneNumber && PhoneNumber.invalid && PhoneNumber.touched" class="text-danger">
+                                PhoneNumber is required
+                            </span>
+                        </small>
+                    <!-- </div> -->
+
                 </div>
                 <div class="d-flex">
-                    <input type="email" name="email" placeholder="Enter your privacy email" class="m-form" ngModel>
-                    <input type="tel" name="PhoneNumber" placeholder="Enter your valid number" class="m-form" ngModel>
+                    <input type="text" name="State" placeholder="enter your current state" class="m-form" ngModel
+                        formControlName="State">
+                        <small>
+                            <span *ngIf="State && State.invalid && State.touched" class="text-danger">
+                                State is required
+                            </span>
+                        </small>
+                    
+                    <input type="text" name="country" placeholder="Enter you country name" class="m-form" ngModel
+                        formControlName="Country">
+                        <small>
+                            <span *ngIf="Country && Country.invalid && Country.touched" class="text-danger">
+                                Country is required
+                            </span>
+                        </small>
                 </div>
-                <div class="d-flex">
-                    <input type="text" name="State" placeholder="enter your current state" class="m-form" ngModel>
-                    <input type="text" name="country" placeholder="Enter you country name" class="m-form" ngModel>
-                </div>
-                <div class="d-flex">
+                <!-- <div class="d-flex"> -->
                     <div class="form-group m-form">
                         <label for="exampleFormControlSelect1">Company Name</label>
                         <!-- <mat-icon>arrow_drop_down</mat-icon> -->
-                        <select class="form-control" id="exampleFormControlSelect1" name="CompanyName" ngModel style="margin-top: 45px;">
-                          <option>Spa Paragon</option>
-                          <option>GameDay Catering</option>
-                          <option> Exploration Kids</option>
-                          <option> Yoga Professor</option>
+                        <select class="form-control" id="exampleFormControlSelect1" name="CompanyName" ngModel
+                            style="margin-top: 45px;" formControlName="CompanyName">
+                            <option>Spa Paragon</option>
+                            <option>GameDay Catering</option>
+                            <option> Exploration Kids</option>
+                            <option> Yoga Professor</option>
                         </select>
-                      </div>
-                </div>
+                        <small>
+                            <span *ngIf="CompanyName && CompanyName.invalid && CompanyName.touched" class="text-danger">
+                                CompanyName is required
+                            </span>
+                        </small>
+                    </div>
+                <!-- </div> -->
             </form>
         </div>
         <div class="d-flex mt-3">
-            <button mat-raised-button color="primary" class="m-4"
-                (click)="submitForm(forms.value)">SUBMIT</button>
-            <button mat-stroked-button color="Light" class="m-4"
-                (click)="resetForm(forms)">RESET</button>
+            <button mat-raised-button color="primary" class="m-4" (click)="submitForm(forms.value)"
+                [disabled]="AdminForm.invalid">SUBMIT</button>
+            <!-- <button mat-stroked-button color="Light" class="m-4"
+                (click)="clearform()" [disabled]="AdminForm.invalid">RESET</button> -->
         </div>
     </div>
 </div>
