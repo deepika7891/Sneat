@@ -7,14 +7,25 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
-  userEmail: any;
+  userName: any;
 
   constructor(private activate: ActivatedRoute) { }
 
 
   ngOnInit(): void {
-    this.userEmail = this.activate.snapshot.paramMap.get('user');
-    console.log(this.userEmail);
+    this.getuser();
   }
+
+  getuser() {
+		const userString = localStorage.getItem('user');
+
+		if (userString) {
+			const user = JSON.parse(userString);
+			this.userName = user.username;
+			console.log('Username:', this.userName);
+		} else {
+			console.log('User data not found in localStorage');
+		}
+	}
 
 }

@@ -8,24 +8,28 @@ import { Router } from '@angular/router';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-     
-  @Input() data:any;
-  
-  constructor (private authService : AuthService , private router : Router){}
 
-      logout() : void{
-        if(confirm("are you sure logout your id ?")){
-          this.authService.logout();
-        }
-        else{
-          console.log("logout not");
-          
-        }
-      }
+  @Input() username: any;
 
-      profile(){
-        this.router.navigate(['/home/account-setting'])
-      }
+  constructor(private authService: AuthService, private router: Router) { }
 
-      
+  logout(): void {
+    if (confirm("are you sure logout your id ?")) {
+      this.authService.logout();
+      const username = localStorage.getItem('user');
+      console.log("get username", username);
+      localStorage.removeItem('user');
+
+    }
+    else {
+      console.log("logout not");
+
+    }
+  }
+
+  profile() {
+    this.router.navigate(['/home/account-setting'])
+  }
+
+
 }

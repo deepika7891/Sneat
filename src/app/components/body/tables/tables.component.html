@@ -1,83 +1,163 @@
-<h5 class="m-4">Basic Table</h5>
-<label for="search">Search by name and number : </label>
-<input type="text" placeholder="Search here your name and phoneNumber" [(ngModel)]="searchText"
-    (ngModelChange)="SearchItem($event)" />
+<div class="d-flex">
+    <h5 class="m-4">Basic Table</h5>
+    <button (click)="addBlankRow()" [disabled]="disableblank"
+        class="bg-transparent border-0"><mat-icon>add</mat-icon></button>
+</div>
 
-<ngx-datatable class="material mt-4" [rows]="newadmin" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="0"
-    [rowHeight]="50" [scrollbarV]="false">
+<!-- <mat-icon>done</mat-icon> -->
+<div class="mt-4">
+    <!--  serach by name and phoneNumber -->
+    <label for="search">Search by name and number : </label>
+    <input type="text" placeholder="Search your name & phoneNumber" [(ngModel)]="searchText"
+        (ngModelChange)="SearchItem($event)" />
 
-    <!-- ID COLUMN -->
-    <ngx-datatable-column name="id" prop="id">
-    </ngx-datatable-column>
+    <ngx-datatable class="material mt-4" [rows]="admins" [columnMode]="'force'" [headerHeight]="50"
+        [footerHeight]="50" [rowHeight]="60" [scrollbarV]="false" [externalPaging]="true" [count]="totalItems"
+        [offset]="(page - 1) * itemsPerPage" [limit]="itemsPerPage" (page)="onPageChange($event)">
 
-    <!-- NAME COLUMN -->
-    <ngx-datatable-column name="fullName" prop="fullName" [sortable]="false">
-        <ng-template let-column="column" ngx-datatable-header-template>
-            <span (click)="sorting(column.name)">
-                {{column.name}}
-            </span>
-        </ng-template>
-        <ng-template let-row="row" ngx-datatable-cell-template>
-            <span>
-                {{row.fullName}}
-            </span>
-        </ng-template>
-    </ngx-datatable-column>
+        <!-- ID COLUMN -->
+        <!-- <ngx-datatable-column name="id" prop="id">
+        </ngx-datatable-column> -->
 
-    <!-- E-MAIL COLUMN -->
-    <ngx-datatable-column name="email" prop="email" [sortable]="false">
-        <ng-template let-column="column" ngx-datatable-header-template>
-            <span (click)="sorting(column.name)">
-                {{column.name}}
-            </span>
-        </ng-template>
-        <ng-template let-row="row" ngx-datatable-cell-template>
-            {{row.email}}
-        </ng-template>
-    </ngx-datatable-column>
+        <!-- NAME COLUMN -->
+        <ngx-datatable-column name="fullName" prop="fullName" [sortable]="false">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <span (click)="sorting(column.name)">
+                    {{column.name}}
+                </span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template let-i="rowIndex">
+                <span *ngIf="!row.id">
+                    <input formControlName="fullName" style="width: 150px;" />
+                </span>
+                <span *ngIf="row.id">
+                    {{ row.fullName }}
+                </span>
+            </ng-template>
+        </ngx-datatable-column>
 
-    <!-- Phonenumber column -->
-    <ngx-datatable-column name="phoneNumber" prop="phoneNumber" [sortable]="false">
-        <ng-template let-row="row" ngx-datatable-cell-template>
-            {{row.phoneNumber}}
-        </ng-template>
-    </ngx-datatable-column>
+        <!-- E-MAIL COLUMN -->
+        <ngx-datatable-column name="email" prop="email" [sortable]="false">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <span (click)="sorting(column.name)">
+                    {{column.name}}
+                </span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template let-i="rowIndex">
+                <span *ngIf="!row.id">
+                    <input formControlName="email" style="width: 150px;" />
+                </span>
+                <span *ngIf="row.id">
+                    {{ row.email }}
+                </span>
+            </ng-template>
+        </ngx-datatable-column>
 
-    <!-- State column -->
-    <ngx-datatable-column name="state" prop="state" [sortable]="false">
-        <ng-template let-row="row" ngx-datatable-cell-template>
-            {{row.state}}
-        </ng-template>
-    </ngx-datatable-column>
+        <!-- Phonenumber column -->
+        <ngx-datatable-column name="phoneNumber" prop="phoneNumber" [sortable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template let-i="rowIndex">
+                <span *ngIf="!row.id">
+                    <input formControlName="phoneNumber" style="width: 150px;" />
+                </span>
+                <span *ngIf="row.id">
+                    {{ row.phoneNumber }}
+                </span>
+            </ng-template>
+        </ngx-datatable-column>
 
-    <!-- Country column -->
-    <ngx-datatable-column name="country" prop="country" [sortable]="false">
-        <ng-template let-row="row" ngx-datatable-cell-template>
-            {{row.country}}
-        </ng-template>
-    </ngx-datatable-column>
+        <!-- State column -->
+        <ngx-datatable-column name="state" prop="state" [sortable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template let-i="rowIndex">
+                <span *ngIf="!row.id">
+                    <input formControlName="state" style="width: 150px;" />
+                </span>
+                <span *ngIf="row.id">
+                    {{ row.state }}
+                </span>
+            </ng-template>
+        </ngx-datatable-column>
 
-    <!-- company-name column -->
-    <ngx-datatable-column name="companyName" prop="companyName" [sortable]="false">
-        <ng-template let-column="column" ngx-datatable-header-template>
-            <span (click)="sorting(column.name)">
-                {{column.name}}
-            </span>
-        </ng-template>
-        <ng-template let-row="row" ngx-datatable-cell-template>
-            {{row.companyName}}
-        </ng-template>
-    </ngx-datatable-column>
+        <!-- Country column -->
+        <ngx-datatable-column name="country" prop="country" [sortable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template let-i="rowIndex">
+                <span *ngIf="!row.id">
+                    <input formControlName="country" style="width: 150px;" />
+                </span>
+                <span *ngIf="row.id">
+                    {{ row.country }}
+                </span>
+            </ng-template>
+        </ngx-datatable-column>
 
-    <!-- Delete action column -->
-    <ngx-datatable-column name="Action" prop="Action">
-        <ng-template let-row="row" ngx-datatable-cell-template>
-            <button (click)="distroy(row.fullName)" class="border-0 bg-transparent"><mat-icon>delete</mat-icon></button>
-        </ng-template>
-    </ngx-datatable-column>
-</ngx-datatable>
+        <!-- company-name column -->
+        <ngx-datatable-column name="companyName" prop="companyName" [sortable]="false">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <span (click)="sorting(column.name)">
+                    {{column.name}}
+                </span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template let-i="rowIndex">
+                <span *ngIf="!row.id">
+                    <input formControlName="companyName" style="width: 150px;" />
+                </span>
+                <span *ngIf="row.id">
+                    {{ row.companyName }}
+                </span>
+            </ng-template>
+        </ngx-datatable-column>
+
+        <!-- Delete action column -->
+        <ngx-datatable-column name="Action" prop="Action">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <!-- <button (click)="deleteById(row.id)"
+                    class="border-0 bg-transparent"><mat-icon>delete</mat-icon></button> -->
+
+                <!-- <button class="btn btn-sm btn-primary" (click)="editRow(row)">Edit</button> -->
+                <!-- <button class="border-0 bg-transparent"
+                    (click)="editingRowId === row.id ? updateSaveRow() : editRow(row)">
+                    <mat-icon>
+                        {{ editingRowId === row.id ? 'save' : 'edit' }}
+                    </mat-icon>
+                </button> -->
 
 
-<mat-paginator style="background-color: transparent;" [pageSizeOptions]="[5, 10, 20]" [pageIndex]="page"
-    [pageSize]="itemsPerPage" [length]="admins.length" (page)="onPageChange($event)"
-    aria-label="Select page of sellers"></mat-paginator>
+
+                <div *ngIf="addRow; else defaultButtons">
+                    <div>
+                        <button class="border-0 bg-transparent" (click)="cancel()" [disabled]="newFormData.valid">
+                            <mat-icon>
+                                clear
+                            </mat-icon>
+                        </button>
+                        <button class="border-0 bg-transparent" (click)="save()" [disabled]="newFormData.invalid">
+                            <mat-icon>
+                                done
+                            </mat-icon>
+                        </button>
+                    </div>
+                </div>
+                <ng-template #defaultButtons>
+                    <div>
+                        <button class="border-0 bg-transparent"  (click)="editingRowId === row.id ? updateSaveRow() : editItem(row)">
+                            <mat-icon>
+                                {{ editingRowId === row.id ? 'save' : 'edit' }}
+                            </mat-icon>
+                        </button>
+                        <button class="border-0 bg-transparent" (click)="deleteById(row.id)">
+                            <mat-icon>
+                                delete
+                            </mat-icon>
+                        </button>
+                    </div>
+                </ng-template>
+
+            </ng-template>
+        </ngx-datatable-column>
+    </ngx-datatable>
+
+
+    <!-- <mat-paginator style="background-color: transparent;" [pageSizeOptions]="[5, 10, 20]" [pageIndex]="page"
+        [pageSize]="itemsPerPage" [length]="admins.length" (page)="onPageChange($event)"
+        aria-label="Select page of sellers"></mat-paginator> -->
+
+</div>

@@ -1,12 +1,30 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
 	selector: 'app-dashboard',
 	templateUrl: './dashboard.component.html',
 	styleUrl: './dashboard.component.css'
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
 	chart: any;
+	username: any;
+
+	ngOnInit(): void {
+		this.getuser();
+	}
+
+	getuser() {
+		const userString = localStorage.getItem('user');
+
+		if (userString) {
+			const user = JSON.parse(userString);
+			this.username = user.username;
+			console.log('Username:', this.username);
+		} else {
+			console.log('User data not found in localStorage');
+		}
+	}
+
 
 	chartOptions = {
 		theme: "light2",
@@ -87,5 +105,4 @@ export class DashboardComponent {
 	]
 
 
-	@Input() data: string = "Ram";
 }

@@ -41,20 +41,25 @@ export class LoginComponent {
 
     this.authService.loginCheck(this.Email, this.Password).subscribe(
       (response: any) => {
-        console.log('API response:', response.email);
+        console.log('API response:', response);
         this.authService.isAuthenticated = true; // Set isAuthenticated to true
         // alert("Successfully login");
         // alert(response)
         alert("Successfully logged in. Username: " + response.username);
-        const userObject = { user: response.username };
-        console.log(userObject);
+        // const userObject = { user: response.username };
+        // console.log(userObject);
+
+        const username = response.username;
 
         //generate token set 
         const generatedToken = this.generateSixDigitToken();
         console.log('Generated 6-digit token:', generatedToken);
         this.authService.setToken(generatedToken);
 
-        this.router.navigate(['/home', userObject])
+        // store username in local storage key user
+        localStorage.setItem("user",JSON.stringify(response));
+
+        this.router.navigate(['/home'])
         this.clearForm();
       },
       (error) => {
@@ -68,6 +73,8 @@ export class LoginComponent {
           alert("email is not found sorry. try again!")
           const storedToken = this.authService.getToken();
           console.log('Stored token:', storedToken);
+        // const username = JSON.parse(localStorage.getItem("user"));
+          
         }
       }
     );
